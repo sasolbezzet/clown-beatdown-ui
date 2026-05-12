@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "skills": {
+    "coding": {
+      "version": "1.0.3",
+      "installedAt": 1778574545620
+    },
+    "skill-creator": {
+      "version": "0.1.0",
+      "installedAt": 1778577599160
+    },
+    "subagent-driven-development": {
+      "version": "0.1.0",
+      "installedAt": 1778577608373
+    },
+    "playwright-browser-automation": {
+      "version": "2.0.0",
+      "installedAt": 1778577615043
+    },
+    "perry-coding-agents": {
+      "version": "1.5.0",
+      "installedAt": 1778577701127
+    },
+    "react-component-generator": {
+      "version": "1.0.0",
+      "installedAt": 1778577805449
+    },
+    "ui-ux-pro-max": {
+      "version": "0.1.0",
+      "installedAt": 1778578650812
+    },
+    "ui-ux-design": {
+      "version": "1.0.0",
+      "installedAt": 1778578686585
+    },
+    "frontend": {
+      "version": "1.0.2",
+      "installedAt": 1778580537684
+    },
+    "github-issue-resolver": {
+      "version": "1.0.0",
+      "installedAt": 1778584788128
+    }
+  }
+}
