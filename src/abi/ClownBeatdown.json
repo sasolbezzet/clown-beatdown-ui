@@ -1,0 +1,23 @@
+[
+  {
+    "inputs": [{ "internalType": "string", "name": "_secret", "type": "string" }],
+    "name": "addSecret",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "robAndReward",
+    "outputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
