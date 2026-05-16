@@ -34,12 +34,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
       # Ensure submodule issues do not block build
       - name: Fix submodule config
         run: |
           git submodule sync || true
           git submodule update --init --recursive || true
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_TOKEN }}
