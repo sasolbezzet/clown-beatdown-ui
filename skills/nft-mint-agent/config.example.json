@@ -1,0 +1,7 @@
+{
+  "rpcUrl": "https://goerli.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+  "privateKey": "YOUR_PRIVATE_KEY",
+  "ipfsPinataApiKey": "YOUR_PINATA_API_KEY",
+  "ipfsPinataSecretApiKey": "YOUR_PINATA_SECRET_KEY",
+  "contractAddress": "0xYourERC721ContractAddressIfAlreadyDeployed"
+}

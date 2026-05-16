@@ -1,0 +1,15 @@
+{
+  "name": "my-src20",
+  "version": "1.0.0",
+  "description": "Contoh token SRC20 dengan Seismic",
+  "type": "module",
+  "scripts": {
+    "test": "sforge test",
+    "interact": "node src/interact.js"
+  },
+  "dependencies": {
+    "viem": "^2.0.0",
+    "ethers": "^6.12.0",
+    "dotenv": "^16.4.5"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "transactions": [
+    {
+      "rpc": "https://gcp-1.seismictest.net/rpc"
+    },
+    {
+      "rpc": "https://gcp-1.seismictest.net/rpc"
+    },
+    {
+      "rpc": "https://gcp-1.seismictest.net/rpc"
+    },
+    {
+      "rpc": "https://gcp-1.seismictest.net/rpc"
+    },
+    {
+      "rpc": "https://gcp-1.seismictest.net/rpc"
+    }
+  ]
+}

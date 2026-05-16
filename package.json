@@ -1,0 +1,23 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "search_arc_tesnet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bezzet/litevm-defi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bezzet/litevm-defi/issues"
+  },
+  "homepage": "https://github.com/bezzet/litevm-defi#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@seismic/src20-sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for Seismic SRC20 tokens (internal workspace package)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "viem": "^2.0.0",
+    "@seismic/viem": "^0.1.0" 
+  },
+  "devDependencies": {
+    "typescript": "^5.4.2"
+  }
+}

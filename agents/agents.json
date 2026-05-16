@@ -1,0 +1,16 @@
+[
+  {
+    "id": "main",
+    "configured": false
+  },
+  {
+    "id": "7852",
+    "name": "ARC Agent 7852",
+    "owner": "0x2f3dccd9bf470defcfc1eb8ba0bc9469edb9c2fc",
+    "chain": "ARC testnet",
+    "chainId": 5042002,
+    "agentId": 7852,
+    "configured": true,
+    "active": true
+  }
+]

@@ -1,0 +1,14 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+fs_permissions = [{ access = "read-write", path = "./" }]
+
+remappings = [
+  "forge-std/=lib/forge-std/src/",
+  "seismic-solidity/=lib/seismic-solidity/src/"
+]
+
+[rpc_endpoints]
+seismic_test = "${SEISMIC_RPC_URL}"
+

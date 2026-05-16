@@ -1,0 +1,15 @@
+{
+  "name": "nft-mint-agent",
+  "version": "0.1.0",
+  "description": "AI agent to mint NFTs using ethers.js and IPFS",
+  "main": "mint.js",
+  "type": "module",
+  "scripts": {
+    "start": "node mint.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "ethers": "^6.12.1",
+    "form-data": "^4.0.1"
+  }
+}

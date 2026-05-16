@@ -40,6 +40,14 @@
     "github-issue-resolver": {
       "version": "1.0.0",
       "installedAt": 1778584788128
+    },
+    "web-search": {
+      "version": "1.0.0",
+      "installedAt": 1778675669997
+    },
+    "openclaw-trust-validation": {
+      "version": "1.0.0",
+      "installedAt": 1778690695386
     }
   }
 }
