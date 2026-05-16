@@ -12,6 +12,10 @@ function App() {
   const [src20, setSrc20] = useState<ethers.Contract | null>(null);
   const [secret, setSecret] = useState<string>('');
   const [msg, setMsg] = useState<string>('');
+  const [stamina, setStamina] = useState<string>('');
+  const [roundNum, setRoundNum] = useState<string>('');
+  const [secretsCnt, setSecretsCnt] = useState<string>('');
+  const [hits, setHits] = useState<string>('0');
 
   // Inisialisasi provider, signer, dan kontrak
   useEffect(() => {
@@ -36,6 +40,28 @@ function App() {
     };
     init();
   }, []);
+
+  // Refresh contract stats whenever contract or account changes
+  useEffect(() => {
+    if (!clown || !account) return;
+    const fetchStats = async () => {
+      try {
+        const [stam, rnd, secCnt] = await Promise.all([
+          clown.clownStamina(),
+          clown.round(),
+          clown.secretsCount()
+        ]);
+        setStamina(stam.toString());
+        setRoundNum(rnd.toString());
+        setSecretsCnt(secCnt.toString());
+        const hitCount = await clown.hitsPerRound(rnd, account);
+        setHits(hitCount.toString());
+      } catch (e) {
+        console.error('Error fetching stats', e);
+      }
+    };
+    fetchStats();
+  }, [clown, account]);
 
   const addSecret = async () => {
     if (!clown) return;
@@ -77,6 +103,40 @@ function App() {
     }
   };
 
+  // Rob tanpa reward (view only)
+  const rob = async () => {
+    if (!clown) return;
+    try {
+      setMsg('Mengambil secret…');
+      const secretBytes = await clown.rob();
+      // Convert bytes to string (utf8) if possible
+      let secretStr: string;
+      try {
+        secretStr = ethers.toUtf8String(secretBytes);
+      } catch {
+        secretStr = ethers.toUtf8String(secretBytes);
+      }
+      setMsg(`Secret: ${secretStr}`);
+    } catch (e) {
+      console.error(e);
+      setMsg('Gagal mengambil secret. Pastikan stamina = 0 dan Anda sudah kontribusi.');
+    }
+  };
+
+  // Reset clown (only when down)
+  const resetClown = async () => {
+    if (!clown) return;
+    try {
+      setMsg('Resetting...');
+      const tx = await clown.reset();
+      await tx.wait();
+      setMsg('Reset selesai.');
+    } catch (e) {
+      console.error(e);
+      setMsg('Reset gagal.');
+    }
+  };
+
   const checkBalance = async () => {
     if (!src20) return;
     const bal = await src20.balanceOf(account);
@@ -108,7 +168,20 @@ function App() {
       <button onClick={robAndReward} style={{ marginRight: '0.5rem' }}>
         Rob & Reward
       </button>
-      <button onClick={checkBalance}>Cek Saldo SRC20</button>
+      <button onClick={checkBalance} style={{ marginRight: '0.5rem' }}>
+        Cek Saldo SRC20
+      </button>
+      {/* Tambahan fungsi */}
+      <button onClick={rob} style={{ marginRight: '0.5rem' }} disabled={stamina !== '0'}>
+        Rob (tanpa reward)
+      </button>
+      <button onClick={resetClown} style={{ marginRight: '0.5rem' }} disabled={stamina !== '0'}>
+        Reset Clown
+      </button>
+      {/* Statistik */}
+      <div style={{ marginTop: '1rem' }}>
+        <p>Stamina: {stamina || '-'} | Round: {roundNum || '-'} | Secrets: {secretsCnt || '-'} | Hits Anda: {hits}</p>
+      </div>
 
       {msg && <p style={{ marginTop: '1rem', color: 'green' }}>{msg}</p>}
     </div>
