@@ -1,16 +1,12 @@
-# MyShieldedToken (SRC20)
+# Clown Beatdown DApp
 
-Repository contoh untuk membuat token **SRC20** di jaringan **Seismic**.
+Ini adalah DApp React + Vite yang berinteraksi dengan kontrak **Clown Beatdown** pada jaringan **Seismic Testnet**.
 
-## Isi
-- `src/SRC20.sol` – kontrak token yang menggunakan tipe shielded `suint256`.
-- `test/SRC20.t.sol` – unit‑test yang dijalankan dengan `sforge test`.
-- `foundry.toml` – konfigurasi Foundry.
-- `package.json` & `src/interact.js` – contoh skrip JavaScript menggunakan **Viem** untuk berinteraksi dengan kontrak.
-- `.env` – placeholder untuk RPC URL dan private key (harus di‑isi sendiri).
-
-## Langkah selanjutnya
-1. Install Rust, `sforge`, Foundry, dan Node.js (lihat instruksi di pesan sebelumnya).
-2. Jalankan `sforge test -vv` untuk memastikan kontrak berfungsi.
-3. Deploy dengan `forge create …`.
-4. Interaksi lewat `node src/interact.js`.
+- Pastikan file `.env` di `my-src20/frontend/` berisi:
+  ```
+  VITE_RPC_URL=https://gcp-1.seismictest.net/rpc
+  VITE_PRIVATE_KEY=0xYOUR_PRIVATE_KEY
+  VITE_CONTRACT_ADDRESS=0xYOUR_CONTRACT_ADDRESS
+  ```
+- Jalankan `npm ci && npm run dev` untuk menguji secara lokal.
+- Build produksi dengan `npm run build` dan GitHub Actions akan mem‑publish otomatis ke GitHub Pages.
