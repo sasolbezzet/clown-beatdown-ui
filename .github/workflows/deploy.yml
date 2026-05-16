@@ -29,7 +29,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: my-src20/frontend
-        run: npm ci
+        run: npm install
 
       # (optional) Export VITE_KIT_KEY if needed
       # - name: Export VITE_KIT_KEY from secret
