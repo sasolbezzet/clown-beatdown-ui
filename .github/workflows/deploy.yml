@@ -25,16 +25,18 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        working-directory: frontend
+        run: npm ci
 
       # (optional) Export VITE_KIT_KEY if needed
       # - name: Export VITE_KIT_KEY from secret
       #   run: echo "VITE_KIT_KEY=${{ secrets.CIRCLE_KIT_KEY }}" >> $GITHUB_ENV
 
       - name: Build project
+        working-directory: frontend
         run: |
-          mkdir -p dist
-          echo "<html><body><h1>Clown Beatdown UI</h1></body></html>" > dist/index.html
+          npm run build
+          # Vite outputs to frontend/dist (relative to repo root)
 
       # Ensure submodule issues do not block build
       - name: Fix submodule config
@@ -46,6 +48,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./frontend/dist
           keep_files: false
           force_orphan: true
