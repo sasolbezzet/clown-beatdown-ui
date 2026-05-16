@@ -28,7 +28,7 @@ jobs:
         run: npm config set registry https://registry.npmjs.org/
 
       - name: Install dependencies
-        working-directory: frontend
+        working-directory: my-src20/frontend
         run: npm ci
 
       # (optional) Export VITE_KIT_KEY if needed
@@ -36,10 +36,10 @@ jobs:
       #   run: echo "VITE_KIT_KEY=${{ secrets.CIRCLE_KIT_KEY }}" >> $GITHUB_ENV
 
       - name: Build project
-        working-directory: frontend
+        working-directory: my-src20/frontend
         run: |
           npm run build
-          # Vite outputs to frontend/dist (relative to repo root)
+          # Vite outputs to my-src20/frontend/dist (relative to repo root)
 
       # Ensure submodule issues do not block build
       - name: Fix submodule config
@@ -51,6 +51,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./frontend/dist
+          publish_dir: ./my-src20/frontend/dist
           keep_files: false
           force_orphan: true

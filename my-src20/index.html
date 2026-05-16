@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Clown Beatdown – my‑src20 (Seismic Testnet)</title>
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif; margin:2rem;}
+      pre {background:#f4f4f4; padding:1rem; overflow:auto;}
+    </style>
+  </head>
+  <body>
+    <h1>Clown Beatdown – my‑src20</h1>
+    <p>This repository contains a sample <strong>SRC20</strong> token and the <strong>Clown Beatdown</strong> contract, designed to run on the <a href="https://seismic-testnet.io" target="_blank">Seismic Testnet</a>.</p>
+    <h2>How to use</h2>
+    <ol>
+      <li>Copy <code>.env.example</code> to <code>.env</code> and fill in the values:
+        <pre>
+RPC_URL=https://gcp-1.seismictest.net/rpc   # Seismic Testnet RPC endpoint
+PRIVATE_KEY=0xYOUR_PRIVATE_KEY                # Account that will deploy/interact
+        </pre>
+      </li>
+      <li>Install dependencies:
+        <pre>npm ci</pre>
+      </li>
+      <li>Deploy the contracts (replace <code>YOUR_CONTRACT_ADDRESS</code> after deployment):
+        <pre>npm run interact   # runs src/interact.js which deploys & interacts
+        </pre>
+      </li>
+      <li>After deployment you will have two contract addresses:
+        <ul>
+          <li><strong>Clown Beatdown</strong> – address you will interact with (hit, add secret, rob, etc.)</li>
+          <li><strong>SRC20</strong> – the token used for rewards</li>
+        </ul>
+      </li>
+      <li>Use the <code>src/interact.js</code> script or any EVM‑compatible wallet (MetaMask, viem, ethers) to call the contract functions.
+        <br/>Example (with <code>viem</code>):
+        <pre>
+import { createPublicClient, http } from 'viem'
+import { sepolia } from 'viem/chains'
+
+const client = createPublicClient({
+  chain: sepolia,
+  transport: http(process.env.RPC_URL),
+})
+// then call contract methods as shown in src/interact.js
+        </pre>
+      </li>
+    </ol>
+    <h2>Repository layout</h2>
+    <ul>
+      <li><code>src/ClownBeatdown.sol</code> – the game contract.</li>
+      <li><code>src/SRC20.sol</code> – a minimal ERC‑20 token used for rewards.</li>
+      <li><code>src/interact.js</code> – helper script to deploy and interact with the contracts using <code>ethers</code>/<code>viem</code>.</li>
+      <li><code>.env.example</code> – template for environment variables.</li>
+    </ul>
+    <p>For the full Seismic Testnet documentation see <a href="https://docs.seismic-testnet.io" target="_blank">https://docs.seismic-testnet.io</a>.</p>
+  </body>
+</html>

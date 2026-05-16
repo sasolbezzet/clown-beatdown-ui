@@ -1,0 +1,13 @@
+[
+  {
+    "type": "function",
+    "name": "addSecret",
+    "inputs": [{ "name": "secret", "type": "string" }],
+    "outputs": []
+  },
+  { "type": "function", "name": "hit", "inputs": [], "outputs": [] },
+  { "type": "function", "name": "rob", "inputs": [], "outputs": [] },
+  { "type": "function", "name": "robAndReward", "inputs": [], "outputs": [] },
+  { "type": "function", "name": "reset", "inputs": [], "outputs": [] },
+  { "type": "function", "name": "stats", "inputs": [], "outputs": [{ "type": "uint256" }] }
+]
